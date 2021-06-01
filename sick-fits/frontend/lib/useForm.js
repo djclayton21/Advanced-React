@@ -9,7 +9,7 @@ function useForm(initialState = {}) {
       value = parseInt(value);
     }
     if (type === 'file') {
-      value[0] = files;
+      [value] = files;
     }
     setInputs({
       ...inputs,
