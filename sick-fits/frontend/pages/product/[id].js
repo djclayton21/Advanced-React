@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
+import SingleProduct from '../../components/SingleProduct';
 
-export default function SingleProduct() {
+export default function SingleProductPage() {
   const router = useRouter();
   const { id } = router.query;
-  return <p>Single Product:{id}</p>;
+  return <SingleProduct id={id} />;
 }
