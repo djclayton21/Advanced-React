@@ -63,7 +63,6 @@ export default function UpdateProduct({ id }) {
 
   useEffect(() => {
     setInputs(queryData.Product);
-    console.log('why?');
   }, [queryData, setInputs]);
 
   if (loading) return <p>Loading!</p>;
