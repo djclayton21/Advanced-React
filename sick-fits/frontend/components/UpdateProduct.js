@@ -50,7 +50,9 @@ export default function UpdateProduct({ id }) {
   const loading = queryLoading || updateLoading;
   const error = queryError || updateError;
 
-  const { inputs, handleChange, setInputs } = useForm(queryData?.Product);
+  const { inputs, handleChange, setInputs } = useForm(
+    queryData ? queryData.Product : { name: '', price: 0, description: '' }
+  );
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -62,7 +64,7 @@ export default function UpdateProduct({ id }) {
   }
 
   useEffect(() => {
-    setInputs(queryData.Product);
+    if (queryData) setInputs(queryData.Product);
   }, [queryData, setInputs]);
 
   if (loading) return <p>Loading!</p>;
