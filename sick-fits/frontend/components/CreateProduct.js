@@ -58,7 +58,7 @@ function CreateProduct() {
       <DisplayError error={error} />
       <fieldset disabled={loading} aria-busy={loading}>
         <label htmlFor="name">
-          Name
+          Image
           <input
             type="file"
             id="image"

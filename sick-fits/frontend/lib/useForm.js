@@ -19,14 +19,15 @@ function useForm(initialState = {}) {
   function resetForm() {
     setInputs(initialState);
   }
+
   function clearForm() {
-    // const blankState = Object.entries(inputs).map(([key, value]) => [key, '']);
     const blankState = { ...inputs };
     Object.keys(blankState).forEach((key) => (blankState[key] = ''));
     setInputs(blankState);
   }
   return {
     inputs,
+    setInputs,
     handleChange,
     resetForm,
     clearForm,
