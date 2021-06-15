@@ -2,12 +2,13 @@ import PropTypes from 'prop-types';
 import Products from '../../components/Products';
 import Pagination from '../../components/Pagination';
 
-export default function ProductPage({ query: { page = '1' } }) {
-  const pageNumber = parseInt(page);
+export default function ProductPage({ query: { page } }) {
+  const pageNumber = parseInt(page) || 1;
+  console.log(pageNumber);
   return (
     <div>
       <Pagination page={pageNumber} />
-      <Products />
+      <Products page={pageNumber} />
       <Pagination page={pageNumber} />
     </div>
   );
