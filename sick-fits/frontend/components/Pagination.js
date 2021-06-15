@@ -1,27 +1,9 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import Link from 'next/link';
-import gql from 'graphql-tag';
-import { useQuery } from '@apollo/client';
 import PaginationStyles from './styles/PaginationStyles';
-import DisplayError from './ErrorMessage';
-import { perPage } from '../config';
 
-export const PAGINATION_QUERY = gql`
-  query PAGINATION_QUERY {
-    _allProductsMeta {
-      count
-    }
-  }
-`;
-
-export default function Pagination({ page }) {
-  const { error, loading, data } = useQuery(PAGINATION_QUERY);
-  if (loading) return 'Loading...';
-  if (error) return <DisplayError error={error} />;
-
-  const { count } = data._allProductsMeta;
-  const pageCount = Math.ceil(count / perPage);
+export default function Pagination({ page, pageCount, count }) {
   return (
     <PaginationStyles>
       <Head>
@@ -45,4 +27,6 @@ export default function Pagination({ page }) {
 
 Pagination.propTypes = {
   page: PropTypes.number,
+  pageCount: PropTypes.number,
+  count: PropTypes.number,
 };

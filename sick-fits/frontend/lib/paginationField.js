@@ -1,4 +1,4 @@
-import { PAGINATION_QUERY } from '../components/Pagination';
+import { PAGINATION_QUERY } from '../pages/products/index';
 
 export default function paginationField() {
   return {
