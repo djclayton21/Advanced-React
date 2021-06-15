@@ -29,7 +29,7 @@ export default function paginationField() {
       return false;
     },
     merge(existing, incoming, { args }) {
-      const { skip, first } = args;
+      const { skip } = args;
       console.log('merging items from network');
       const merged = existing ? existing.slice(0) : [];
       for (let i = skip; i < skip + incoming.length; i += 1) {
