@@ -14,7 +14,7 @@ export default function Nav() {
           <Link href="/sell">Sell</Link>
           <Link href="/orders">Orders</Link>
           <Link href="/account">Account</Link>
-          <SignOut>Sign Out!</SignOut> 
+          <SignOut>Sign Out!</SignOut>
         </>
       ) : (
         <Link href="/signin">Sign In</Link>

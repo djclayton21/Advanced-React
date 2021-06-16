@@ -31,13 +31,13 @@ const CREATE_PRODUCT_MUTATION = gql`
   }
 `;
 function CreateProduct() {
-  const { inputs, handleChange, clearForm, resetForm } = useForm({
+  const { inputs, handleChange, clearForm } = useForm({
     image: '',
     name: '',
     price: 0,
     description: '',
   });
-  const [createProduct, { loading, error, data }] = useMutation(
+  const [createProduct, { loading, error }] = useMutation(
     CREATE_PRODUCT_MUTATION,
     {
       variables: inputs,

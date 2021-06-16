@@ -31,7 +31,7 @@ export default function SignIn() {
   });
   const { email, password } = inputs;
 
-  const [signIn, { data, error, loading }] = useMutation(SIGN_IN_MUTATION, {
+  const [signIn, { data }] = useMutation(SIGN_IN_MUTATION, {
     variables: { email, password },
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
