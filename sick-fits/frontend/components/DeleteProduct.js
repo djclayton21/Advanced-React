@@ -2,6 +2,8 @@ import gql from 'graphql-tag';
 import PropTypes from 'prop-types';
 import { useMutation } from '@apollo/client';
 
+import styled from 'styled-components';
+
 const DELETE_PRODUCT_MUTATION = gql`
   mutation DELETE_PRODUCT_MUTATION($id: ID!) {
     deleteProduct(id: $id) {

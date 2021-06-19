@@ -21,6 +21,7 @@ const ItemStyles = styled.div`
   }
   .buttonList {
     display: grid;
+    place-items: center;
     width: 100%;
     border-top: 1px solid var(--lightGray);
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -31,6 +32,10 @@ const ItemStyles = styled.div`
       border: 0;
       font-size: 1rem;
       padding: 1rem;
+    }
+    & > *:hover {
+      text-decoration: underline;
+      cursor: pointer;
     }
   }
 `;

@@ -35,7 +35,6 @@ export default function ProductPage() {
     <div>
       <Pagination page={pageNumber} pageCount={pageCount} count={count} />
       <Products page={pageNumber} />
-      count={count}
       <Pagination page={pageNumber} pageCount={pageCount} count={count} />
     </div>
   );
