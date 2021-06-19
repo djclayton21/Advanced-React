@@ -1,8 +1,9 @@
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
+import { useRouter } from 'next/router';
 import useForm from '../lib/useForm';
 import Form from './styles/Form';
-import { CURRENT_USER_QUERY } from './User';
+import { CURRENT_USER_QUERY, useUser } from './User';
 import DisplayError from './ErrorMessage';
 
 const SIGN_IN_MUTATION = gql`
@@ -25,13 +26,17 @@ const SIGN_IN_MUTATION = gql`
 `;
 
 export default function SignIn() {
+  const router = useRouter();
+  const user = useUser();
+  if (user) {
+    router.push('/');
+  }
   const { inputs, handleChange, resetForm } = useForm({
     email: '',
     password: '',
   });
   const { email, password } = inputs;
-
-  const [signIn, { data }] = useMutation(SIGN_IN_MUTATION, {
+  const [signIn, { data, error }] = useMutation(SIGN_IN_MUTATION, {
     variables: { email, password },
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
@@ -52,7 +57,7 @@ export default function SignIn() {
     <Form method="POST" onSubmit={handleSubmit}>
       <fieldset>
         <h2>Sign in to your account</h2>
-        <DisplayError error={failedLogin} />
+        <DisplayError error={error || failedLogin} />
         <label htmlFor="email">
           Email
           <input
