@@ -22,7 +22,6 @@ export default function paginationField() {
       }
 
       if (items.length) {
-        console.log(`there are ${items.length} in the cache. `);
         return items;
       }
 
@@ -30,7 +29,6 @@ export default function paginationField() {
     },
     merge(existing, incoming, { args }) {
       const { skip } = args;
-      console.log('merging items from network');
       const merged = existing ? existing.slice(0) : [];
       for (let i = skip; i < skip + incoming.length; i += 1) {
         merged[i] = incoming[i - skip];
